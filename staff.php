@@ -26,7 +26,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="staff.html">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="staff-transaction-list.html">Reservation List</a></li>
-                </ul><button class="btn btn-primary" type="button" style="margin-left: 20em;">Sign Out</button>
+                </ul><a class="btn btn-primary" type="button" href="functions/logout.php" style="margin-left: 20em;">Sign Out</a>
             </div>
         </div>
     </nav>

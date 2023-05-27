@@ -25,8 +25,8 @@
                     </svg></span><span>ODBRR Systems</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="staff.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="staff-transaction-list.html">Reservation List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="staff-transaction-list.php">Reservation List</a></li>
                 </ul><button class="btn btn-primary" type="button" style="margin-left: 20em;">Sign Out</button>
             </div>
         </div>

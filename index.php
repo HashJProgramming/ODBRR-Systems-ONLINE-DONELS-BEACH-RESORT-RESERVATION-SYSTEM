@@ -83,7 +83,7 @@
                         <div class="text-center">
                             <h4 class="text-dark mb-4">Create an Account!</h4>
                         </div>
-                        <form class="user">
+                        <form class="user" action="functions/register.php" method="post">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
                             <div class="row mb-3">
@@ -103,7 +103,7 @@
                             </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
                             <hr>
                         </form>
-                        <div class="text-center"><a class="small" href="reserve.html" data-bs-target="#signin" data-bs-toggle="modal">Already have an account? Login!</a></div>
+                        <div class="text-center"><a class="small" href="reserve.php" data-bs-target="#signin" data-bs-toggle="modal">Already have an account? Login!</a></div>
                     </div>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
@@ -121,7 +121,7 @@
                         <div class="text-center">
                             <h4 class="text-dark mb-4">Welcome Back!</h4>
                         </div>
-                        <form class="user">
+                        <form class="user" action="functions/login.php" method="post">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="password" id="password-1" placeholder="Password" required="" name="password"></div>
                             <div class="row mb-3">
@@ -130,7 +130,7 @@
                             </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-1" type="submit">Sign In</button>
                             <hr>
                         </form>
-                        <div class="text-center"><a class="small" href="reserve.html" data-bs-target="#signup" data-bs-toggle="modal">Don't have an account? Register!</a></div>
+                        <div class="text-center"><a class="small" href="reserve.php" data-bs-target="#signup" data-bs-toggle="modal">Don't have an account? Register!</a></div>
                     </div>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>

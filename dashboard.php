@@ -24,11 +24,11 @@
                     </svg></span><span>ODBRR Systems</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-list.html">Reservation List</a></li>
-                    <li class="nav-item"><a class="nav-link" href="my-reservation-list.html">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-cart.html">My History</a></li>
-                    <li class="nav-item"><a class="nav-link" href="my-account.html">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservation-list.php">Reservation List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
                 </ul><button class="btn btn-primary" type="button">Sign Out</button>
             </div>
         </div>
