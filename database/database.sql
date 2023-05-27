@@ -1,0 +1,52 @@
+CREATE DATABASE db_hashys;
+
+USE db_hashys;
+
+CREATE TABLE lists (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  descriptions TEXT,
+  type VARCHAR(255) NOT NULL,
+  pax INT NOT NULL,
+  price INT NOT NULL,
+  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE foods (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  type VARCHAR(255) NOT NULL,
+  price INT NOT NULL,
+  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  firstname VARCHAR(255) NOT NULL,
+  lastname VARCHAR(255) NOT NULL,
+  address TEXT,
+  phone VARCHAR(255) NOT NULL,
+  type INT NOT NULL,
+  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE transactions (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  lists_id INT NOT NULL,
+  lunch INT NOT NULL,
+  dinner INT NOT NULL,
+  breakfast INT NOT NULL,
+  amount INT NOT NULL,
+  total_price INT NOT NULL,
+  status VARCHAR(255) NOT NULL,
+  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (lists_id) REFERENCES lists (id)
+);
