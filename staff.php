@@ -199,7 +199,7 @@ include_once "functions/lists.php";
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Room ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">DESCRIPTION</div></th>
@@ -210,16 +210,7 @@ include_once "functions/lists.php";
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#confrim-room" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                                            <td class="border-0 align-middle"><strong>DELUX</strong></td>
-                                            <td class="border-0 align-middle"><strong>ROOM</strong></td>
-                                            <td class="border-0 align-middle"><strong>15</strong></td>
-                                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        </tr>
+                                        <?php room_list(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -264,7 +255,7 @@ include_once "functions/lists.php";
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Room ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">DESCRIPTION</div></th>
@@ -275,17 +266,7 @@ include_once "functions/lists.php";
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#confrim-room" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                                            <td class="border-0 align-middle"><strong>DELUX</strong></td>
-                                            <td class="border-0 align-middle"><strong>ROOM</strong></td>
-                                            <td class="border-0 align-middle"><strong>15</strong></td>
-                                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        </tr>
-                                    </tbody>
+                                    <?php catage_list(); ?>
                                 </table>
                             </div>
                         </div>
@@ -329,7 +310,7 @@ include_once "functions/lists.php";
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Room ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">DESCRIPTION</div></th>
@@ -340,16 +321,7 @@ include_once "functions/lists.php";
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#confrim-room" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                                            <td class="border-0 align-middle"><strong>DELUX</strong></td>
-                                            <td class="border-0 align-middle"><strong>ROOM</strong></td>
-                                            <td class="border-0 align-middle"><strong>15</strong></td>
-                                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        </tr>
+                                    <?php hall_list(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -394,7 +366,7 @@ include_once "functions/lists.php";
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Room ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
@@ -402,13 +374,7 @@ include_once "functions/lists.php";
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-food" data-bs-toggle="modal"><i class="far fa-edit"></i></a><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#confrim-food" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        </tr>
+                                       <?php lunch_list();?>
                                     </tbody>
                                 </table>
                             </div>
@@ -453,7 +419,7 @@ include_once "functions/lists.php";
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Room ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
@@ -461,13 +427,7 @@ include_once "functions/lists.php";
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-food" data-bs-toggle="modal"><i class="far fa-edit"></i></a><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#confrim-food" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        </tr>
+                                        <?php lunch_list();?>
                                     </tbody>
                                 </table>
                             </div>
@@ -512,7 +472,7 @@ include_once "functions/lists.php";
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Room ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
                                             <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>

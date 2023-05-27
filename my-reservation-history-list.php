@@ -32,7 +32,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
-                </ul><button class="btn btn-primary" type="button">Sign Out</button>
+                </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
         </div>
     </nav>
