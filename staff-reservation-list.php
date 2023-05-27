@@ -1,6 +1,3 @@
-<?php
-include_once "functions/authentication.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,41 +37,42 @@ include_once "functions/authentication.php";
         </div>
     </nav>
     <section class="py-5">
-        <div class="container">
-            <h1 class="text-center mb-4">Reservations</h1>
-        </div>
-        <div class="container">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Reservation</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CODE</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-Out</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Total Price</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
-                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Status</div></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;"><i class="far fa-eye"></i></a><a href="#" class="text-dark" style="margin-left: 10px;"><i class="fas fa-check"></i></a><a href="#" class="text-dark" style="margin-left: 10px;"><i class="fas fa-times"></i></a></td>
-                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                            <td class="border-0 align-middle"><strong>Pending</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section class="py-5">
+            <div class="container">
+                <h1 class="text-center mb-4">Reservations</h1>
             </div>
-        </div>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Reservation</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CODE</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-Out</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Total Price</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
+                                <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Status</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
+                                <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;"><i class="far fa-eye"></i></a><a href="#" class="text-dark" style="margin-left: 10px;"><i class="fas fa-check"></i></a><a href="#" class="text-dark" style="margin-left: 10px;"><i class="fas fa-times"></i></a></td>
+                                <td class="border-0 align-middle"><strong>#001</strong></td>
+                                <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
+                                <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
+                                <td class="border-0 align-middle"><strong>$400</strong></td>
+                                <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
+                                <td class="border-0 align-middle"><strong>Pending</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </section>
-    <section class="py-5"></section>
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
