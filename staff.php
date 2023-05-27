@@ -1,5 +1,6 @@
 <?php
 include_once "functions/authentication.php";
+include_once "functions/lists.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
