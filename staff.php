@@ -30,12 +30,9 @@ include_once "functions/lists.php";
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="staff-reservation-list.php">Reservation List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#users" data-bs-toggle="modal">Users</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#rooms" data-bs-toggle="modal">Rooms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#halls" data-bs-toggle="modal">Halls</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#catages" data-bs-toggle="modal">Catages</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#lunch" data-bs-toggle="modal">Lunch</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#dinner" data-bs-toggle="modal">Dinner</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#breakfast" data-bs-toggle="modal">Breakfast</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#cotages" data-bs-toggle="modal">cotages</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
         </div>
@@ -164,7 +161,69 @@ include_once "functions/lists.php";
 
 
 
-
+    <div class="modal fade" role="dialog" tabindex="-1" id="users">
+        <div class="modal-dialog modal-xl modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Users</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h4 class="text-dark mb-4">ADD USER</h4>
+                        </div>
+                        <form class="user" action="functions/register.php" method="post">
+                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" required="" name="password"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
+                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
+                            <div class="form-group mb-3">
+                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
+                            </div>
+                            <div class="row mb-3">
+                                <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
+                                <p id="passwordErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
+                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
+                            <hr>
+                        </form>
+                    </div>
+                    <section class="py-5">
+                        <div class="container">
+                            <h1 class="text-center mb-4">Rooms</h1>
+                        </div>
+                        <div class="container">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">USERNAME</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">FULLNAME</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">EMAIL</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PHONE</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">ADDRESS</div></th>
+                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php user_list(); ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="rooms">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
@@ -221,11 +280,11 @@ include_once "functions/lists.php";
             </div>
         </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="catages">
+    <div class="modal fade" role="dialog" tabindex="-1" id="cotages">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">CATAGES</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">cotages</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="p-5">
@@ -248,7 +307,7 @@ include_once "functions/lists.php";
                     </div>
                     <section class="py-5">
                         <div class="container">
-                            <h1 class="text-center mb-4">Catages</h1>
+                            <h1 class="text-center mb-4">cotages</h1>
                         </div>
                         <div class="container">
                             <div class="table-responsive">
@@ -267,227 +326,6 @@ include_once "functions/lists.php";
                                     </thead>
                                     <tbody>
                                     <?php catage_list(); ?>
-                                </table>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="halls">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">FUNCTION HALL</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">CREATE FUNCTION HALL</h4>
-                        </div>
-                        <form class="user" action="functions/create-function-hall.php" method="post">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg-4" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg-4" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-4" type="submit">Add Function Hall</button>
-                            <hr>
-                        </form>
-                    </div>
-                    <section class="py-5">
-                        <div class="container">
-                            <h1 class="text-center mb-4">Function Halls</h1>
-                        </div>
-                        <div class="container">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">DESCRIPTION</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">TYPE</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PAX</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php hall_list(); ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="lunch">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">LUNCHES</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">CREATE LUNCH</h4>
-                        </div>
-                        <form class="user" action="functions/create-lunch.php" method="post">
-                            <div class="mb-3"></div>
-                            <div class="mb-3"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="price"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg-3" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg-3" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-3" type="submit">Add Lunch</button>
-                            <hr>
-                        </form>
-                    </div>
-                    <section class="py-5">
-                        <div class="container">
-                            <h1 class="text-center mb-4">Lunches</h1>
-                        </div>
-                        <div class="container">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       <?php lunch_list();?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="dinner">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">DINNERS</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">CREATE DINNER</h4>
-                        </div>
-                        <form class="user" action="functions/create-dinner.php" method="post">
-                            <div class="mb-3"></div>
-                            <div class="mb-3"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="price"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg-6" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg-6" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-6" type="submit">Add Dinner</button>
-                            <hr>
-                        </form>
-                    </div>
-                    <section class="py-5">
-                        <div class="container">
-                            <h1 class="text-center mb-4">Dinners</h1>
-                        </div>
-                        <div class="container">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php lunch_list();?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="breakfast">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">BREAKFAST</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">CREATE BREAKFAST</h4>
-                        </div>
-                        <form class="user" action="functions/create-breakfast.php" method="post">
-                            <div class="mb-3"></div>
-                            <div class="mb-3"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="price"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg-7" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg-7" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-7" type="submit">Add Breakfast</button>
-                            <hr>
-                        </form>
-                    </div>
-                    <section class="py-5">
-                        <div class="container">
-                            <h1 class="text-center mb-4">Breakfast</h1>
-                        </div>
-                        <div class="container">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">ID</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Options</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">NAME</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
-                                            <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">CREATED</div></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-food" data-bs-toggle="modal"><i class="far fa-edit"></i></a><a href="#" class="text-dark" style="margin-left: 10px;" data-bs-target="#update-food" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>#001</strong></td>
-                                            <td class="border-0 align-middle"><strong>$400</strong></td>
-                                            <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -526,47 +364,6 @@ include_once "functions/lists.php";
             </div>
         </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="update-food">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Update Food</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">Update</h4>
-                        </div>
-                        <form class="user">
-                            <div class="mb-3"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="price"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg-8" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg-8" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-8" type="submit">Update</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="confrim-food">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Remove</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to remove this?</p>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="button">Remove</button></div>
-            </div>
-        </div>
-    </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="confrim-room">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -580,7 +377,19 @@ include_once "functions/lists.php";
             </div>
         </div>
     </div>
-
+    <div class="modal fade" role="dialog" tabindex="-1" id="confrim-user">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Remove</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove this user?</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="button">Remove</button></div>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -31,7 +31,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="staff-reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" data-bs-target="#rooms" data-bs-toggle="modal" href="#">Rooms</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#halls" data-bs-toggle="modal">Halls</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#catages" data-bs-toggle="modal">Catages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#cotages" data-bs-toggle="modal">cotages</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#lunch" data-bs-toggle="modal">Lunch</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#dinner" data-bs-toggle="modal">Dinner</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#breakfast" data-bs-toggle="modal">Breakfast</a></li>
