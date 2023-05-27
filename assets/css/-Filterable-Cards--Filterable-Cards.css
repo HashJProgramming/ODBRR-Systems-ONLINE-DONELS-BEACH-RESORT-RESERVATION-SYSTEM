@@ -1,0 +1,26 @@
+.filtr-item {
+  padding-top: 30px;
+}
+
+.filtr-controls span {
+  cursor: pointer;
+}
+
+.filtr-controls span:after {
+  content: ' ';
+  width: 0;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: transparent;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.filtr-controls span.active:after {
+  width: 100%;
+  left: 0;
+  background: #000;
+}
+
