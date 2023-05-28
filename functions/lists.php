@@ -23,7 +23,7 @@ function user_list(){
             </td>
 
             <td class="border-0 align-middle">
-                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
+                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#update-user" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
                 <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#confrim-user" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a>
             </td>
             <td class="border-0 align-middle"><strong><?php echo $row['username']?></strong></td>

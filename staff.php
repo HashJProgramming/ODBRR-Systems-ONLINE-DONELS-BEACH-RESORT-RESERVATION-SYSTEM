@@ -379,12 +379,13 @@ include_once "functions/lists.php";
                         <div class="text-center">
                             <h4 class="text-dark mb-4">ADD USER</h4>
                         </div>
-                        <form class="user" action="functions/register.php" method="post">
+                        <form class="user" action="functions/update-user.php" method="post">
+                            <input type="hidden" name="data_id">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="email" placeholder="Email Address" required="" name="email"></div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" required="" name="password"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" placeholder="Password" required="" name="password"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" placeholder="Repeat Password" required="" name="repeat-password"></div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
@@ -396,7 +397,7 @@ include_once "functions/lists.php";
                             <div class="row mb-3">
                                 <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
                                 <p id="passwordErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
+                            </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Update Account</button>
                             <hr>
                         </form>
                     </div>
@@ -411,12 +412,12 @@ include_once "functions/lists.php";
                 <div class="modal-header">
                     <h4 class="modal-title">Remove</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
-                <form action="" method="post">
+                <form action="functions/remove-data.php" method="post">
                     <input type="hidden" name="data_id">
                 <div class="modal-body">
                     <p>Are you sure you want to remove this?</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="button">Remove</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="submit">Remove</button></div>
                 </form>
             </div>
         </div>
@@ -427,20 +428,16 @@ include_once "functions/lists.php";
                 <div class="modal-header">
                     <h4 class="modal-title">Remove</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
-                <form action="" method="post">
+                <form action="functions/remove-user.php" method="post">
                     <input type="hidden" name="data_id">
                 <div class="modal-body">
                     <p>Are you sure you want to remove this user?</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="button">Remove</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="submit">Remove</button></div>
                 </form>
             </div>
         </div>
     </div>
-
-
-
-
 
 
 
