@@ -1,6 +1,7 @@
 <?php
 include_once "functions/authentication.php";
 include_once "functions/lists.php";
+include_once "functions/staff-count.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,25 +43,25 @@ include_once "functions/lists.php";
             <div class="row row-cols-2 row-cols-md-4">
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">1</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_pending_count() ?></h4>
                         <p class="mb-0">Pending Reservations</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">0</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_approved_count() ?></h4>
                         <p class="mb-0">Approved</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">2</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_decline_count() ?></h4>
                         <p class="mb-0">Decline</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">3</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_total_count() ?></h4>
                         <p class="mb-0">Total Reservations</p>
                     </div>
                 </div>

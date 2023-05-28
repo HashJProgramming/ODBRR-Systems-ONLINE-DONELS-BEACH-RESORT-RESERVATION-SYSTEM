@@ -48,6 +48,12 @@ include_once "functions/customer-count.php";
                 </div>
                 <div class="col">
                     <div class="p-3">
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_approved_count(); ?></h4>
+                        <p class="mb-0">Approved</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
                         <h4 class="display-5 fw-bold text-white mb-0"><?php get_decline_count(); ?></h4>
                         <p class="mb-0">Decline</p>
                     </div>

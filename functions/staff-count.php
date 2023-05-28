@@ -3,9 +3,8 @@
 function get_pending_count() {
     // Connect to the database
     $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', ''); 
-    $sql = "SELECT * FROM transactions WHERE user_id = :id AND status = 'pending'";
+    $sql = "SELECT * FROM transactions WHERE status = 'pending'";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':id', $_SESSION['id']);
     $stmt->execute();
     echo $stmt->rowCount();
 }
@@ -13,9 +12,8 @@ function get_pending_count() {
 function get_decline_count() {
     // Connect to the database
     $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
-    $sql = "SELECT * FROM transactions WHERE user_id = :id AND status = 'decline'";
+    $sql = "SELECT * FROM transactions WHERE status = 'decline'";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':id', $_SESSION['id']);
     $stmt->execute();
     echo $stmt->rowCount();
 }
@@ -23,9 +21,8 @@ function get_decline_count() {
 function get_approved_count() {
     // Connect to the database
     $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
-    $sql = "SELECT * FROM transactions WHERE user_id = :id AND status = 'approved'";
+    $sql = "SELECT * FROM transactions WHERE status = 'approved'";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':id', $_SESSION['id']);
     $stmt->execute();
     echo $stmt->rowCount();
 }
@@ -33,9 +30,8 @@ function get_approved_count() {
 function get_total_count() {
     // Connect to the database
     $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
-    $sql = "SELECT * FROM transactions WHERE user_id = :id";
+    $sql = "SELECT * FROM transactions";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':id', $_SESSION['id']);
     $stmt->execute();
     echo $stmt->rowCount();
 }
