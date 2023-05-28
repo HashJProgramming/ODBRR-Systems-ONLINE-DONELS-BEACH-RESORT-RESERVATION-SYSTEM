@@ -1,5 +1,6 @@
 <?php
 include_once "functions/authentication.php";
+include_once "functions/customer-count.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link active" href="dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transaction.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
@@ -41,25 +42,19 @@ include_once "functions/authentication.php";
             <div class="row row-cols-2 row-cols-md-4">
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">1</h4>
-                        <p class="mb-0">My Reservations</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">0</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_pending_count(); ?></h4>
                         <p class="mb-0">Pending</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">2</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_decline_count(); ?></h4>
                         <p class="mb-0">Decline</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">3</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"><?php get_total_count(); ?></h4>
                         <p class="mb-0">Total Reservations</p>
                     </div>
                 </div>

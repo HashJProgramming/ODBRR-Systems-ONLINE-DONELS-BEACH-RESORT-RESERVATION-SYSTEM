@@ -30,7 +30,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="transaction.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>

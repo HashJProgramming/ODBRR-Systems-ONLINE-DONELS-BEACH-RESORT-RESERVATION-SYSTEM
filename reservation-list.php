@@ -1,5 +1,6 @@
 <?php
 include_once "functions/authentication.php";
+include_once "functions/view-data.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link active" href="reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transaction.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
@@ -41,31 +42,20 @@ include_once "functions/authentication.php";
         <section class="py-5">
             <div class="container">
                 <h1 class="text-center mb-4">Reservation</h1>
-                <div class="filtr-controls text-center lead text-uppercase mb-3"><span class="active d-inline-block mx-3 py-1 position-relative" data-filter="all">all </span><span class="d-inline-block mx-3 py-1 position-relative" data-filter="1">Catage</span><span class="d-inline-block mx-3 py-1 position-relative" data-filter="2">Rooms</span><span class="d-inline-block mx-3 py-1 position-relative" data-filter="3">Hall</span></div>
+                <div class="filtr-controls text-center lead text-uppercase mb-3">
+                    <span class="active d-inline-block mx-3 py-1 position-relative" data-filter="all">all </span>
+                    <span class="d-inline-block mx-3 py-1 position-relative" data-filter="1">Rooms</span>
+                    <span class="d-inline-block mx-3 py-1 position-relative" data-filter="2">Cottage</span>
+                </div>
                 <div class="row filtr-container">
-                    <div class="col-md-6 col-lg-4 filtr-item" data-category="2,3">
-                        <div class="card border-dark">
-                            <div class="card-header bg-dark text-light">
-                                <h5 class="m-0">Room #1</h5>
-                            </div><img class="img-fluid card-img w-100 d-block rounded-0" src="assets/img/room1.jpg">
-                            <div class="card-body">
-                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg">
-                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                            </svg></span><span>Price <strong>1,500</strong></span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg">
-                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                            </svg></span><span>Pax <strong>3</strong></span></li>
-                                </ul>
-                            </div>
-                            <div class="d-flex card-footer"><button class="btn btn-dark btn-sm" type="button" data-bs-target="#foods" data-bs-toggle="modal"><i class="fa fa-eye"></i>&nbsp;Reserve</button><button class="btn btn-outline-dark btn-sm ms-auto" type="button"><i class="fa fa-plus"></i>&nbsp;Add</button></div>
-                        </div>
+                   
+                        <?php data_list(); ?>
                     </div>
                 </div>
             </div>
         </section>
     </section>
+
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
@@ -118,38 +108,38 @@ include_once "functions/authentication.php";
             </div>
         </div>
     </footer>
-    <div class="modal fade" role="dialog" tabindex="-1" id="foods">
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="transaction">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">ODBRR Systems - Reservation</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="functions/create-transaction.php" method="post">
+                        <input type="hidden" name="data_id">
                         <p>Check In</p>
-                        <div class="form-floating mb-3"><input class="form-control" type="date"></div>
+                        <div class="form-floating mb-3"><input class="form-control" type="date" name="check_in"></div>
                         <p>Check Out</p>
-                        <div class="form-floating mb-3"><input class="form-control" type="date"></div>
-                        <hr>
-                        <div class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
-                                <option value="1">This is item 1 | $450</option>
-                                <option value="1">This is item 2</option>
-                            </select><label class="form-label" for="floatinginput">Breakfast</label></div>
-                        <div class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
-                                <option value="1">This is item 1 | $450</option>
-                                <option value="1">This is item 2</option>
-                            </select><label class="form-label" for="floatinginput">Dinner</label></div>
-                        <div class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
-                                <option value="1">This is item 1 | $450</option>
-                                <option value="1">This is item 2</option>
-                            </select><label class="form-label" for="floatinginput">Lunch</label></div>
-                    </form>
+                        <div class="form-floating mb-3"><input class="form-control" type="date" name="check_out"></div>                 
+                    
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Proceed</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Proceed</button></div>
+                </form>
             </div>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
+    <script>
+        $('button[data-bs-target="#transaction"]').on('click', function() {
+            var id = $(this).data('id');
+            console.log(id);
+            $('input[name="data_id"]').each(function() {
+                $(this).val(id);
+            });
+        });
+    </script>
+    <script src="assets/js/-Filterable-Cards--Filterable-Cards.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
 </body>

@@ -32,7 +32,8 @@ CREATE TABLE transactions (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   lists_id INT NOT NULL,
-
+  check_in DATETIME NOT NULL,
+  check_out DATETIME NOT NULL,
   amount INT NOT NULL,
   total_price INT NOT NULL,
   status VARCHAR(255) NOT NULL,

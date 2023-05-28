@@ -31,7 +31,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link active" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transaction.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
@@ -47,29 +47,20 @@ include_once "functions/authentication.php";
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Reservation</div></th>
                                         <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">ID</div></th>
+                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">RESERVATION</div></th>
+                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
                                         <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>
                                         <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-Out</div></th>
-                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Lunch</div></th>
-                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Dinner</div></th>
-                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Breakfast</div></th>
-                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Remove</div></th>
+                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">DAYS</div></th>
+                                        <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">TOTAL</div></th>
                                         <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Status</div></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                        <td class="border-0 align-middle"><strong>#001</strong></td>
-                                        <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                        <td class="border-0 align-middle"><strong>SECRET</strong></td>
-                                        <td class="border-0 align-middle"><strong>SECRET</strong></td>
-                                        <td class="border-0 align-middle"><strong>SECRET</strong></td>
-                                        <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fas fa-trash"></i></a></td>
-                                        <td class="border-0 align-middle"><strong>Pending</strong></td>
-                                    </tr>
+                                    <?php
+                                        include_once 'functions/view-my-reservations.php';
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

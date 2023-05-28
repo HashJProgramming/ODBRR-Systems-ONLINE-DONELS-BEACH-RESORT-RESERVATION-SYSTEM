@@ -30,7 +30,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transaction.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link active" href="my-account.php">My Account</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
@@ -40,39 +40,29 @@ include_once "functions/authentication.php";
         <section>
             <h1 class="text-center text-capitalize">My Account</h1>
             <div class="container">
-                <form id="application-form">
-                    <div class="form-group mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <p><strong>First Name</strong>&nbsp;<span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="" placeholder="Ex. John">
+                    <div class="p-5">
+                        <form class="user" action="functions/update-user.php" method="post">
+                            <input type="hidden" name="data_id" value="<?php echo $_SESSION['id']; ?>">
+                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="email" placeholder="Email Address" required="" name="email"></div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" placeholder="Password" required="" name="password"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" placeholder="Repeat Password" required="" name="repeat-password"></div>
                             </div>
-                            <div class="col">
-                                <p><strong>Last Name</strong>&nbsp;<span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="" placeholder="Ex. Smith">
+                            <div class="row mb-3">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
+                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
+                            <div class="form-group mb-3">
+                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
                             </div>
-                        </div>
+                            <div class="row mb-3">
+                                <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
+                                <p id="passwordErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
+                            </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Update Account</button>
+                            <hr>
+                        </form>
                     </div>
-                    <div class="form-group mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <p><strong>Date Of Birth</strong>&nbsp;<span class="text-danger">*</span></p><input class="form-control" type="date" required="" name="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <p><strong>Email&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="email" name="" placeholder="user@domain.com">
-                    </div>
-                    <div class="form-group mb-3">
-                        <p><strong>Phone&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="number" name="" placeholder="7777777777">
-                    </div>
-                    <div class="form-group mb-3">
-                        <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
-                    </div>
-                    <div class="justify-content-center d-flex form-group mb-3">
-                        <div id="submit-btn">
-                            <div class="row"><button class="btn btn-primary btn-light m-0 rounded-pill px-4" type="button" style="min-width: 500px;" action method="POST" target="hidden_iframe">Save</button></div>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col">
                 <h3 id="fail" class="text-center text-danger d-none"><br>Form not Submitted&nbsp;<a href="contact.php">Try Again</a><br><br></h3>

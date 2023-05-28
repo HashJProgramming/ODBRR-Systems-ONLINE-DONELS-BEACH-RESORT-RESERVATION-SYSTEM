@@ -1,5 +1,11 @@
 <?php
 include_once "functions/authentication.php";
+$db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
+
+if (!isset($_SESSION['id'])) {
+    header('location: ../index.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +36,7 @@ include_once "functions/authentication.php";
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="reservation-cart.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="transaction.php">My History</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
@@ -49,82 +55,60 @@ include_once "functions/authentication.php";
                                             <thead>
                                                 <tr>
                                                     <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Reservation</div></th>
-                                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Price</div></th>
+                                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">TOTAL</div></th>
                                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>
                                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-Out</div></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Room #1</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Delux</span></div></div></td>
-                                                    <td class="border-0 align-middle"><strong>$400</strong></td>
-                                                    <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                                    <td class="border-0 align-middle"><strong>5/25/2023</strong></td>
-                                                </tr>
+                                                <?php
+                                                     $sql = 'SELECT * FROM transactions WHERE user_id = :id AND status = "processing" ORDER BY id DESC';
+                                                     $stmt = $db->prepare($sql);
+                                                     $stmt->bindValue(':id', $_SESSION['id']);
+                                                     $stmt->execute();
+                                                     $results = $stmt->fetchAll();
+                                                 
+                                                     // Loop through the results and add them to the table
+                                                     foreach ($results as $row) {
+                                                     ?>
+                                                        <tr>
+                                                            <?php get_data($row['lists_id']) ?>
+                                                            <td class="border-0 align-middle"><strong>₱<?php echo $row['total_price']; ?></strong></td>
+                                                            <td class="border-0 align-middle"><strong><?php echo $row['check_in']; ?></strong></td>
+                                                            <td class="border-0 align-middle"><strong><?php echo $row['check_out']; ?></strong></td>
+                                                        </tr>
+                                                    <?php 
+                                                     }
+
+                                                     function get_data($id){
+                                                        $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
+                                                        $sql = 'SELECT * FROM lists WHERE id = :id';
+                                                        $stmt = $db->prepare($sql);
+                                                        $stmt->bindParam(':id', $id);
+                                                        $stmt->execute();
+                                                        $results = $stmt->fetchAll();
+                                                        foreach ($results as $row) {
+                                                            ?>
+                                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                            <div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"><?php echo $row['name']; ?></a>
+                                                            </h5><span class="text-muted font-weight-normal font-italic d-block">Price 	₱<?php echo $row['price']; ?></span></div></div></td>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                                
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Lunch</div></th>
-                                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Price</div></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> PRITONG ISDA</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Fish Flavored</span></div></div></td>
-                                                    <td class="border-0 align-middle"><strong>$400</strong></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Dinner</div></th>
-                                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Price</div></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> PRITONG ISDA</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Fish Flavored</span></div></div></td>
-                                                    <td class="border-0 align-middle"><strong>$400</strong></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="bg-light border-0" scope="col"><div class="p-2 px-3 text-uppercase">Breakfast</div></th>
-                                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Price</div></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> PRITONG ISDA</a></h5><span class="text-muted font-weight-normal font-italic d-block"> Fish Flavored</span></div></div></td>
-                                                    <td class="border-0 align-middle"><strong>$400</strong></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="row py-5 p-4 bg-white rounded shadow-sm">
                                 <div class="col-lg-6">
-                                    <div class="text-uppercase bg-light rounded-pill px-4 py-3 font-weight-bold"><span>Instructions for reservation</span></div>
-                                    <div class="p-4">
-                                        <p class="font-italic mb-4">If you have some information for the Donels Beach Resort you can leave them in the box below</p><textarea name="" cols="30" rows="2" class="form-control"></textarea>
-                                    </div>
                                     <div class="text-uppercase bg-light rounded-pill px-4 py-3 font-weight-bold"><span>cancel reservation</span></div>
                                     <div class="p-4">
-                                        <p class="font-italic mb-4">If you want to cancel this reservation just press the cancel button below.</p><a class="btn btn-dark rounded-pill py-2 btn-block" role="button" href="#">Cancel</a>
+                                        <p class="font-italic mb-4">If you want to cancel this reservation just press the cancel button below.</p>
+                                        <a class="btn btn-dark rounded-pill py-2 btn-block" role="button" href="functions/cancel-reservation.php">Cancel</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -132,12 +116,19 @@ include_once "functions/authentication.php";
                                     <div class="p-4">
                                         <p class="font-italic mb-4">additional costs are calculated based on values you have entered.</p>
                                         <ul class="list-unstyled mb-4">
-                                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-                                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Lunch&nbsp;</strong><strong>$390.00</strong></li>
-                                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Dinner&nbsp;</strong><strong>$390.00</strong></li>
-                                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Breakfast</strong><strong>$390.00</strong></li>
-                                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong><h5 class="font-weight-bold">$400.00</h5></li>
-                                        </ul><a class="btn btn-dark rounded-pill py-2 btn-block" role="button" href="#">Procceed</a>
+                                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong><h5 class="font-weight-bold">
+                                            <?php
+                                                     $sql = 'SELECT * FROM transactions WHERE user_id = :id AND status = "processing" ORDER BY id DESC';
+                                                     $stmt = $db->prepare($sql);
+                                                     $stmt->bindValue(':id', $_SESSION['id']);
+                                                     $stmt->execute();
+                                                     $results = $stmt->fetchAll();
+                                                     if(count($results)){
+                                                        echo '₱'.$row['total_price'];
+                                                     }
+                                            ?>
+                                            </h5></li>
+                                        </ul><a class="btn btn-dark rounded-pill py-2 btn-block" role="button" href="functions/proceed-reservation.php">Procceed</a>
                                     </div>
                                 </div>
                             </div>
@@ -199,6 +190,7 @@ include_once "functions/authentication.php";
             </div>
         </div>
     </footer>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
