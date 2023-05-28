@@ -4,8 +4,9 @@
 $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 
 // Get all data from the products table
-$sql = 'SELECT * FROM transactions ORDER BY id ASC';
+$sql = 'SELECT * FROM transactions WHERE user_id = :id  ORDER BY id ASC';
 $stmt = $db->prepare($sql);
+$stmt->bindParam(':id', $_SESSION['id']);
 $stmt->execute();
 $results = $stmt->fetchAll();
 

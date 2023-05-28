@@ -41,7 +41,7 @@ include_once "functions/authentication.php";
             <h1 class="text-center text-capitalize">My Account</h1>
             <div class="container">
                     <div class="p-5">
-                        <form class="user" action="functions/update-user.php" method="post">
+                        <form class="user" action="functions/update-account.php" method="post">
                             <input type="hidden" name="data_id" value="<?php echo $_SESSION['id']; ?>">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="email" placeholder="Email Address" required="" name="email"></div>
