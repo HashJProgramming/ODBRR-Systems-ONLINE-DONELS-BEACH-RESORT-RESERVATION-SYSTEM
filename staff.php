@@ -32,7 +32,7 @@ include_once "functions/lists.php";
                     <li class="nav-item"><a class="nav-link" href="staff-reservation-list.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#users" data-bs-toggle="modal">Users</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#rooms" data-bs-toggle="modal">Rooms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#cotages" data-bs-toggle="modal">cotages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#cottages" data-bs-toggle="modal">Cottages</a></li>
                 </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
             </div>
         </div>
@@ -235,13 +235,14 @@ include_once "functions/lists.php";
                         <div class="text-center">
                             <h4 class="text-dark mb-4">CREATE ROOM</h4>
                         </div>
-                        <form class="user" action="functions/create-room.php" method="post">
+                        <form class="user" action="functions/create-room.php" method="post" enctype="multipart/form-data">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
                                 <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
                             </div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="file" placeholder="photo" required name="image" accept="image/*" /></div>
                             <div class="row mb-3">
                                 <p id="emailErrorMsg-1" class="text-danger" style="display: none;">Paragraph</p>
                                 <p id="passwordErrorMsg-1" class="text-danger" style="display: none;">Paragraph</p>
@@ -280,34 +281,35 @@ include_once "functions/lists.php";
             </div>
         </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="cotages">
+    <div class="modal fade" role="dialog" tabindex="-1" id="cottages">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">cotages</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Cottages</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="p-5">
                         <div class="text-center">
-                            <h4 class="text-dark mb-4">CREATE CATAGE</h4>
+                            <h4 class="text-dark mb-4">CREATE COTTAGE</h4>
                         </div>
-                        <form class="user" action="functions/create-catage.php" method="post">
+                        <form class="user" action="functions/create-cottage.php" method="post" enctype="multipart/form-data">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
                                 <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
                             </div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="file" placeholder="photo" required name="image" accept="image/*" /></div>
                             <div class="row mb-3">
                                 <p id="emailErrorMsg-5" class="text-danger" style="display: none;">Paragraph</p>
                                 <p id="passwordErrorMsg-5" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-5" type="submit">Add Catage</button>
+                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-5" type="submit">Add Cottage</button>
                             <hr>
                         </form>
                     </div>
                     <section class="py-5">
                         <div class="container">
-                            <h1 class="text-center mb-4">cotages</h1>
+                            <h1 class="text-center mb-4">Cottages</h1>
                         </div>
                         <div class="container">
                             <div class="table-responsive">
@@ -325,7 +327,7 @@ include_once "functions/lists.php";
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php catage_list(); ?>
+                                    <?php cottage_list(); ?>
                                 </table>
                             </div>
                         </div>
@@ -346,17 +348,56 @@ include_once "functions/lists.php";
                         <div class="text-center">
                             <h4 class="text-dark mb-4">Update</h4>
                         </div>
-                        <form class="user">
+                        <form class="user" action="functions/update-data.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="data_id">
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
                                 <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
                             </div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="file" placeholder="photo" required name="image" accept="image/*" /></div>
                             <div class="row mb-3">
                                 <p id="emailErrorMsg-2" class="text-danger" style="display: none;">Paragraph</p>
                                 <p id="passwordErrorMsg-2" class="text-danger" style="display: none;">Paragraph</p>
                             </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn-2" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="update-user">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Update User</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h4 class="text-dark mb-4">ADD USER</h4>
+                        </div>
+                        <form class="user" action="functions/register.php" method="post">
+                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" required="" name="password"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
+                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
+                            <div class="form-group mb-3">
+                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
+                            </div>
+                            <div class="row mb-3">
+                                <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
+                                <p id="passwordErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
+                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
+                            <hr>
                         </form>
                     </div>
                 </div>
@@ -370,10 +411,13 @@ include_once "functions/lists.php";
                 <div class="modal-header">
                     <h4 class="modal-title">Remove</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
+                <form action="" method="post">
+                    <input type="hidden" name="data_id">
                 <div class="modal-body">
                     <p>Are you sure you want to remove this?</p>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="button">Remove</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -383,10 +427,13 @@ include_once "functions/lists.php";
                 <div class="modal-header">
                     <h4 class="modal-title">Remove</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
+                <form action="" method="post">
+                    <input type="hidden" name="data_id">
                 <div class="modal-body">
                     <p>Are you sure you want to remove this user?</p>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="button">Remove</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -397,24 +444,43 @@ include_once "functions/lists.php";
 
 
 
-
-
-
-
-
-
-
-
-
-
     <script src="assets/js/jquery.min.js"></script>
+    <script>
+        $('a[data-bs-target="#update-room"]').on('click', function() {
+            var id = $(this).data('id');
+            console.log(id);
+            $('input[name="data_id"]').each(function() {
+                $(this).val(id);
+            });
+        });
+
+        $('a[data-bs-target="#update-user"]').on('click', function() {
+        var id = $(this).data('id');
+            console.log(id);
+            $('input[name="data_id"]').each(function() {
+                $(this).val(id);
+            });
+        });
+
+        $('a[data-bs-target="#confrim-room"]').on('click', function() {
+        var id = $(this).data('id');
+            console.log(id);
+            $('input[name="data_id"]').each(function() {
+                $(this).val(id);
+            });
+        });
+
+        $('a[data-bs-target="#confrim-user"]').on('click', function() {
+        var id = $(this).data('id');
+            console.log(id);
+            $('input[name="data_id"]').each(function() {
+                $(this).val(id);
+            });
+        });
+
+    </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/-Filterable-Cards--Filterable-Cards.js"></script>
-    <script src="assets/js/Application-Form-Bootstrap-Image-Uploader.js"></script>
-    <script src="assets/js/Application-Form-submit-form.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
-    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
 </body>
 
 </html>

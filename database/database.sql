@@ -9,15 +9,7 @@ CREATE TABLE lists (
   type VARCHAR(255) NOT NULL,
   pax INT NOT NULL,
   price INT NOT NULL,
-  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE foods (
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  type VARCHAR(255) NOT NULL,
-  price INT NOT NULL,
+  photo TEXT NOT NULL,
   created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
@@ -40,9 +32,7 @@ CREATE TABLE transactions (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   lists_id INT NOT NULL,
-  lunch INT NOT NULL,
-  dinner INT NOT NULL,
-  breakfast INT NOT NULL,
+
   amount INT NOT NULL,
   total_price INT NOT NULL,
   status VARCHAR(255) NOT NULL,

@@ -9,8 +9,8 @@ $description = $_POST['description'];
 $price = $_POST['Price'];
 $pax = $_POST['PAX'];
 
-// Check if the room already exists
-$sql = "SELECT * FROM lists WHERE name = ? AND type = 'room'";
+// Check if the cottage already exists
+$sql = "SELECT * FROM lists WHERE name = ? AND type = 'cottage'";
 $stmt = $db->prepare($sql);
 $stmt->execute([$name]);
 $result = $stmt->fetchAll();
@@ -37,7 +37,7 @@ if (!move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
 }
 
 // Insert the data into the database
-$sql = "INSERT INTO lists (name, descriptions, price, pax, type, photo) VALUES (?, ?, ?, ?, 'room', ?)";
+$sql = "INSERT INTO lists (name, descriptions, price, pax, type, photo) VALUES (?, ?, ?, ?, 'cottage', ?)";
 $stmt = $db->prepare($sql);
 $stmt->execute([$name, $description, $price, $pax, $destination]);
 

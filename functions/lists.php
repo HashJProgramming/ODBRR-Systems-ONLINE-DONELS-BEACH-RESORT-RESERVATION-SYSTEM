@@ -75,12 +75,12 @@ function room_list(){
     }
 }
 
-function catage_list(){
+function cottage_list(){
     // Connect to the database
     $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 
     // Get all data from the products table
-    $sql = 'SELECT * FROM lists WHERE type = "catage" ORDER BY id ASC';
+    $sql = 'SELECT * FROM lists WHERE type = "cottage" ORDER BY id ASC';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $results = $stmt->fetchAll();
@@ -92,7 +92,7 @@ function catage_list(){
             <td class="border-0" scope="row">
                 <div class="p-2">
                     <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> Catage ID: <?php echo $row['id']?></a></h5>
+                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"> cottage ID: <?php echo $row['id']?></a></h5>
                         <span class="text-muted font-weight-normal font-italic d-block"> ODBRR - Systems</span>
                     </div>
                 </div>

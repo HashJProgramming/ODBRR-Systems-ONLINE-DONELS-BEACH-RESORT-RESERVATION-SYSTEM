@@ -4,20 +4,26 @@
 $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 
 // Get the form data
+$id = $_POST['data_id'];
 $name = $_POST['name'];
 $description = $_POST['description'];
 $price = $_POST['Price'];
 $pax = $_POST['PAX'];
 
-// Check if the room already exists
-$sql = "SELECT * FROM lists WHERE name = ? AND type = 'room'";
+// Check if the category already exists
+$sql = "SELECT * FROM lists WHERE id = ?";
 $stmt = $db->prepare($sql);
-$stmt->execute([$name]);
+$stmt->execute([$id]);
 $result = $stmt->fetchAll();
 
-if (count($result) > 0) {
-    header('Location: ../staff.php');
+if (count($result) === 0) {
+    echo "The id does not exist.";
     exit;
+}
+
+// Remove the old image from the uploads directory
+if (file_exists($result[0]['photo'])) {
+    unlink($result[0]['photo']);
 }
 
 // Check if the file was uploaded successfully
@@ -36,10 +42,10 @@ if (!move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     exit;
 }
 
-// Insert the data into the database
-$sql = "INSERT INTO lists (name, descriptions, price, pax, type, photo) VALUES (?, ?, ?, ?, 'room', ?)";
+// Update the data in the database
+$sql = "UPDATE lists SET name = ?, descriptions = ?, price = ?, pax = ?, photo = ? WHERE id = ?";
 $stmt = $db->prepare($sql);
-$stmt->execute([$name, $description, $price, $pax, $destination]);
+$stmt->execute([$name, $description, $price, $pax, $destination, $id]);
 
 // Redirect to the home page
 header('Location: ../staff.php');

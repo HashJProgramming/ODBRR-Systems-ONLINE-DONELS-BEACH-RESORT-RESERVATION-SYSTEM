@@ -163,12 +163,7 @@ include_once "functions/authentication.php";
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/-Filterable-Cards--Filterable-Cards.js"></script>
-    <script src="assets/js/Application-Form-Bootstrap-Image-Uploader.js"></script>
-    <script src="assets/js/Application-Form-submit-form.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
-    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
 </body>
 
 </html>
