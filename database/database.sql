@@ -42,3 +42,6 @@ CREATE TABLE transactions (
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (lists_id) REFERENCES lists (id)
 );
+
+INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `address`, `email`, `phone`, `type`, `created`) VALUES
+(1, 'admin', '$2y$10$WgL2d2fzi6IiGiTfXvdBluTLlMroU8zBtIcRut7SzOB6j9i/LbA4K', 'admin', 'admin', 'administrator', 'admin@admin.com', 'admin', 1, '2023-05-29 03:34:07');
