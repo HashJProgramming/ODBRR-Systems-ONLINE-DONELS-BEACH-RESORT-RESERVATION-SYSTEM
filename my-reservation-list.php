@@ -58,7 +58,7 @@ include_once "functions/authentication.php";
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                    <?php 
                                         include_once 'functions/view-my-reservations.php';
                                     ?>
                                 </tbody>

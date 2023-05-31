@@ -7,4 +7,5 @@ if (isset($_SESSION['username'])) {
         header('location: ./staff.php');
     }
 }
+
 ?>

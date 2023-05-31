@@ -127,4 +127,5 @@ include_once "functions/authentication.php";
     <script src="assets/js/bold-and-bright.js"></script>
 </body>
 
+
 </html>

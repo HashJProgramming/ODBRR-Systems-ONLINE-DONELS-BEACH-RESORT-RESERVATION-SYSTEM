@@ -10,7 +10,7 @@ function data_list(){
     $stmt->execute();
     $results = $stmt->fetchAll();
 
-    // Loop through the results and add them to the table
+    // Loop through the results and add them to the table 
     foreach ($results as $row) {
     ?>
         <?php 

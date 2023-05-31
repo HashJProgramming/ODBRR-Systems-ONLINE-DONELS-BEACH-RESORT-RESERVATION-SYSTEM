@@ -22,7 +22,7 @@ $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $price = $row['price'];
 
-// Get the data from the form
+// Get the data from the form 
 $check_in = $_POST['check_in'];
 $check_out = $_POST['check_out'];
 

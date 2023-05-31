@@ -10,7 +10,7 @@ $description = $_POST['description'];
 $price = $_POST['Price'];
 $pax = $_POST['PAX'];
 
-// Check if the category already exists
+// Check if the category already exists 
 $sql = "SELECT * FROM lists WHERE id = ?";
 $stmt = $db->prepare($sql);
 $stmt->execute([$id]);

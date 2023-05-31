@@ -13,7 +13,7 @@ $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 
-// Check if the username already exists
+// Check if the username already exists 
 $sql = "SELECT * FROM users WHERE username = :username";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':username', $username);

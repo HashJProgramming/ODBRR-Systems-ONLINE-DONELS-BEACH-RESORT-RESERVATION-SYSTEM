@@ -1,6 +1,8 @@
 <?php
 include_once "functions/authentication.php";
 include_once "functions/lists.php";
+include_once "functions/get-information.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +56,8 @@ include_once "functions/lists.php";
                             <thead>
                                 <tr>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">ID</div></th>
+                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">FULLNAME</div></th>
+                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PHONE</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">RESERVATION</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>
@@ -76,6 +80,8 @@ include_once "functions/lists.php";
                             <thead>
                                 <tr>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">ID</div></th>
+                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">FULLNAME</div></th>
+                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PHONE</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">RESERVATION</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>
@@ -97,6 +103,8 @@ include_once "functions/lists.php";
                             <thead>
                                 <tr>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">ID</div></th>
+                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">FULLNAME</div></th>
+                                    <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PHONE</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">RESERVATION</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">PRICE</div></th>
                                     <th class="bg-light border-0" scope="col"><div class="py-2 text-uppercase">Check-In</div></th>

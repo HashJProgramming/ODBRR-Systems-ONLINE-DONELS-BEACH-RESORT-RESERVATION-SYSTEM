@@ -7,7 +7,7 @@ $id = $_POST['data_id'];
 $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 
 
-// Check if the data exists
+// Check if the data exists 
 $sql = "SELECT * FROM transactions WHERE id = :id AND status = 'pending'";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $id);

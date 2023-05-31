@@ -1,6 +1,7 @@
 <?php
 include_once "functions/authentication.php";
 include_once "functions/customer-count.php";
+include_once "functions/get-images.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,9 +82,7 @@ include_once "functions/customer-count.php";
                         <div class="simple-slider">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide" style="background: url(&quot;assets/img/donels.jpg&quot;) center center / auto no-repeat;"></div>
-                                    <div class="swiper-slide" style="background: url(&quot;assets/img/room1.jpg&quot;) center center / cover no-repeat;"></div>
-                                    <div class="swiper-slide" style="background: url(&quot;assets/img/room2.jpg&quot;) center center / cover no-repeat;"></div>
+                                <?php get_image()?>
                                 </div>
                                 <div class="swiper-pagination"></div>
                                 <div class="swiper-button-prev"></div>
@@ -150,6 +149,8 @@ include_once "functions/customer-count.php";
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
 </body>
 
 </html>

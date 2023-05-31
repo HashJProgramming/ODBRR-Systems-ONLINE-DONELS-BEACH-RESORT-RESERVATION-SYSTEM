@@ -20,7 +20,7 @@ if (count($result) > 0) {
     exit;
 }
 
-// Check if the file was uploaded successfully
+// Check if the file was uploaded successfully 
 if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
     echo "There was an error uploading the file.";
     exit;

@@ -17,7 +17,7 @@ if ($stmt->rowCount() === 0) {
   exit;
 }
 
-// Remove the user from the database
+// Remove the user from the database 
 $sql = "DELETE FROM users WHERE id = :id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $id);

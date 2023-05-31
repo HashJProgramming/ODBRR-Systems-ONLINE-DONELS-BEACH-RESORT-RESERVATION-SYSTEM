@@ -37,7 +37,7 @@ if ($payment >= $total_price) {
     $stmt->execute();
 
     // Redirect the user to the home page
-    header('Location: ../staff-reservation-list.php');
+    header('Location: ../success.php?price=' . $total_price . '&payment=' . $payment . '&change=' . ($payment - $total_price));
 } else {
     // Redirect the user back to the transaction page with an error message
     header('Location: ../staff-reservation-list.php?error=payment-not-enough');

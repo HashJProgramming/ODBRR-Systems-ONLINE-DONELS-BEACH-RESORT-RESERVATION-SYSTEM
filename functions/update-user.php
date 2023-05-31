@@ -44,7 +44,7 @@ if ($password !== $repeatPassword) {
   exit;
 }
 
-// Hash the password
+// Hash the password 
 $password = password_hash($password, PASSWORD_DEFAULT);
 
 // Update the user in the database

@@ -49,7 +49,7 @@ include_once "functions/view-data.php";
                 </div>
                 <div class="row filtr-container">
                    
-                        <?php data_list(); ?>
+                        <?php data_list(); ?> 
                     </div>
                 </div>
             </div>

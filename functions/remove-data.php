@@ -6,7 +6,7 @@ $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 // Get the form data
 $id = $_POST['data_id'];
 
-// Check if the data exists
+// Check if the data exists 
 $sql = "SELECT * FROM lists WHERE id = :id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $id);

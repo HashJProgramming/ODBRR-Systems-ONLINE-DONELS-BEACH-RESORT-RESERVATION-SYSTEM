@@ -14,6 +14,7 @@ foreach ($results as $row) {
 ?>
     <tr>
         <td class="border-0 align-middle"><strong><?php echo $row['id']; ?></strong></td>
+        <?php get_customer($row['user_id']); ?>
         <?php get_data($row['lists_id']); ?>
         <td class="border-0 align-middle"><strong><?php echo $row['check_in']; ?></strong></td>
         <td class="border-0 align-middle"><strong><?php echo $row['check_out']; ?></strong></td>

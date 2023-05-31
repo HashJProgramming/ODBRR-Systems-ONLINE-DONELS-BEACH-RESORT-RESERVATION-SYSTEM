@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])){
     $user_id = $_SESSION['id'];
 }
 
-// Connect to the database
+// Connect to the database 
 $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 
 

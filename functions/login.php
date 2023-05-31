@@ -11,7 +11,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute([$username]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Check if the password is correct
+// Check if the password is correct  
 if ($user && password_verify($password, $user['password'])) {
     // Login the user
     session_start();

@@ -39,7 +39,7 @@ include_once "functions/authentication.php";
     <section class="py-5">
         <section class="py-5">
             <div class="container">
-                <h1 class="text-center mb-4">History</h1>
+                <h1 class="text-center mb-4">History</h1> 
             </div>
             <div class="container">
                 <div class="table-responsive">

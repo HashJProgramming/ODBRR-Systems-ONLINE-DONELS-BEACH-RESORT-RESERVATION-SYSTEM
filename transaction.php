@@ -89,7 +89,7 @@ if (!isset($_SESSION['id'])) {
                                                         $results = $stmt->fetchAll();
                                                         foreach ($results as $row) {
                                                             ?>
-                                                            <td class="border-0" scope="row"><div class="p-2"><img src="assets/img/room1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                            <td class="border-0" scope="row"><div class="p-2"><img src="<?php echo 'functions/'.$row['photo']; ?>" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                             <div class="ml-3 d-inline-block align-middle"><h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"><?php echo $row['name']; ?></a>
                                                             </h5><span class="text-muted font-weight-normal font-italic d-block">Price 	₱<?php echo $row['price']; ?></span></div></div></td>
                                                             <?php

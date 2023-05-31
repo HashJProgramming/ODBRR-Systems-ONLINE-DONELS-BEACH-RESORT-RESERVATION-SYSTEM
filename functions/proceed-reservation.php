@@ -10,7 +10,7 @@ if (isset($_SESSION['id'])){
 $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
 
 
-// Check if the data exists
+// Check if the data exists  
 $sql = "SELECT * FROM transactions WHERE user_id = :id AND status = 'processing'";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $user_id);

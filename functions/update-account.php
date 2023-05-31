@@ -26,7 +26,7 @@ if ($stmt->rowCount() > 0) {
   exit;
 }
 
-// Check if the email address already exists
+// Check if the email address already exists 
 $sql = "SELECT * FROM users WHERE email = :email AND id != :id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':email', $email);
