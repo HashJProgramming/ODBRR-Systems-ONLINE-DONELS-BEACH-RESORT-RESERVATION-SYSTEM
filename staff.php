@@ -10,7 +10,7 @@ include_once "functions/get-images.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Log in - ODBRR Systems</title>
+    <title>ODBRR Systems</title>
     <meta name="description" content="ODBRR Systems - ONLINE DONELS BEACH RESORT RESERVATION SYSTEM">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Inter.css">
@@ -168,34 +168,10 @@ include_once "functions/get-images.php";
                     <h4 class="modal-title">Users</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">ADD USER</h4>
-                        </div>
-                        <form class="user" action="functions/register.php" method="post">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" required="" name="password"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
-                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
-                            <div class="form-group mb-3">
-                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
-                            <hr>
-                        </form>
-                    </div>
+                    
                     <section class="py-5">
                         <div class="container">
-                            <h1 class="text-center mb-4">Rooms</h1>
+                            <h1 class="text-center mb-4">Users List</h1>
                         </div>
                         <div class="container">
                             <div class="table-responsive">
@@ -236,11 +212,11 @@ include_once "functions/get-images.php";
                             <h4 class="text-dark mb-4">CREATE ROOM</h4>
                         </div>
                         <form class="user" action="functions/create-room.php" method="post" enctype="multipart/form-data">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Name" required="" name="name"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Description" required="" name="description"></div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"  type="number" pattern="^(?!\s).*$" placeholder="Price" required="" name="Price"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user"  type="number" pattern="^(?!\s).*$" placeholder="PAX" required="" name="PAX"></div>
                             </div>
                             <div class="mb-3"><input class="form-control form-control-user" type="file" placeholder="photo" required name="image" accept="image/*" /></div>
                             <div class="row mb-3">
@@ -293,11 +269,11 @@ include_once "functions/get-images.php";
                             <h4 class="text-dark mb-4">CREATE COTTAGE</h4>
                         </div>
                         <form class="user" action="functions/create-cottage.php" method="post" enctype="multipart/form-data">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Name" required="" name="name"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Description" required="" name="description"></div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"  type="number" pattern="^(?!\s).*$" placeholder="Price" required="" name="Price"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user"  type="number" pattern="^(?!\s).*$" placeholder="PAX" required="" name="PAX"></div>
                             </div>
                             <div class="mb-3"><input class="form-control form-control-user" type="file" placeholder="photo" required name="image" accept="image/*" /></div>
                             <div class="row mb-3">
@@ -350,11 +326,11 @@ include_once "functions/get-images.php";
                         </div>
                         <form class="user" action="functions/update-data.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="data_id">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Name" required="" name="name"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Description" required="" name="description"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Name" required="" name="name"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Description" required="" name="description"></div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Price" required="" name="Price"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="PAX" required="" name="PAX"></div>
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"  type="number" pattern="^(?!\s).*$" placeholder="Price" required="" name="Price"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user"  type="number" pattern="^(?!\s).*$" placeholder="PAX" required="" name="PAX"></div>
                             </div>
                             <div class="mb-3"><input class="form-control form-control-user" type="file" placeholder="photo" required name="image" accept="image/*" /></div>
                             <div class="row mb-3">
@@ -377,22 +353,22 @@ include_once "functions/get-images.php";
                 <div class="modal-body">
                     <div class="p-5">
                         <div class="text-center">
-                            <h4 class="text-dark mb-4">ADD USER</h4>
+                            <h4 class="text-dark mb-4">UPDATE USER</h4>
                         </div>
                         <form class="user" action="functions/update-user.php" method="post">
                             <input type="hidden" name="data_id">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
+                            <div class="mb-3"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Username" required="" name="username"></div>
                             <div class="mb-3"><input class="form-control form-control-user" type="email" placeholder="Email Address" required="" name="email"></div>
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" placeholder="Password" required="" name="password"></div>
                                 <div class="col-sm-6"><input class="form-control form-control-user" type="password" placeholder="Repeat Password" required="" name="repeat-password"></div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
-                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="First Name" required="" name="firstname"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Last Name" required="" name="lastname"></div>
+                            </div><input class="form-control form-control-user"  type="text" pattern="^(?!\s).*$" placeholder="Phone" required="" name="phone">
                             <div class="form-group mb-3">
-                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
+                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control"  type="text" pattern="^(?!\s).*$" required="" name="address">
                             </div>
                             <div class="row mb-3">
                                 <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
@@ -445,18 +421,64 @@ include_once "functions/get-images.php";
     <script>
         $('a[data-bs-target="#update-room"]').on('click', function() {
             var id = $(this).data('id');
-            console.log(id);
+            var name = $(this).data('name');
+            var descriptions = $(this).data('descriptions');
+            var pax = $(this).data('pax');
+            var price = $(this).data('price');
+
+            console.log(id, name, descriptions, pax, price);
             $('input[name="data_id"]').each(function() {
                 $(this).val(id);
             });
+            $('input[name="name"]').each(function() {
+                $(this).val(name);
+            });
+            $('input[name="description"]').each(function() {
+                $(this).val(descriptions);
+            });
+            $('input[name="PAX"]').each(function() {
+                $(this).val(pax);
+            });
+            $('input[name="Price"]').each(function() {
+                $(this).val(price);
+            });
+
         });
 
         $('a[data-bs-target="#update-user"]').on('click', function() {
         var id = $(this).data('id');
-            console.log(id);
+        var username = $(this).data('username');
+        var firstname = $(this).data('firstname');
+        var lastname = $(this).data('lastname');
+        var email = $(this).data('email');
+        var phone = $(this).data('phone');
+        var address = $(this).data('address');
+
+            console.log(id, username, firstname, lastname, email, phone, address);
+
             $('input[name="data_id"]').each(function() {
                 $(this).val(id);
             });
+            $('input[name="username"]').each(function() {
+                $(this).val(username);
+            });
+            $('input[name="firstname"]').each(function() {
+                $(this).val(firstname);
+            });
+            $('input[name="lastname"]').each(function() {
+                $(this).val(lastname);
+            });
+            $('input[name="email"]').each(function() {
+                $(this).val(email);
+            });
+            $('input[name="phone"]').each(function() {
+                $(this).val(phone);
+            });
+            $('input[name="address"]').each(function() {
+                $(this).val(address);
+            });
+
+
         });
 
         $('a[data-bs-target="#confrim-room"]').on('click', function() {

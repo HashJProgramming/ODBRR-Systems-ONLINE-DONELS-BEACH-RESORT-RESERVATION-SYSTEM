@@ -40,21 +40,35 @@ include_once "functions/authentication.php";
         <section>
             <h1 class="text-center text-capitalize">My Account</h1>
             <div class="container">
+                <?php
+                        // Connect to the database
+                    $db = new PDO('mysql:host=localhost;dbname=db_hashys', 'root', '');
+
+                    // Get all data from the products table
+                    $sql = 'SELECT * FROM users WHERE id = ' . $_SESSION['id'] . '';
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $results = $stmt->fetchAll();
+
+                    // Loop through the results and add them to the table 
+                    foreach ($results as $row) {
+                    ?>
+
                     <div class="p-5">
                         <form class="user" action="functions/update-account.php" method="post">
                             <input type="hidden" name="data_id" value="<?php echo $_SESSION['id']; ?>">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="email" placeholder="Email Address" required="" name="email"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="text" value="<?php echo $row['username'] ?>" placeholder="Username" required="" name="username"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" type="email" value="<?php echo $row['email'] ?>" placeholder="Email Address" required="" name="email"></div>
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" placeholder="Password" required="" name="password"></div>
                                 <div class="col-sm-6"><input class="form-control form-control-user" type="password" placeholder="Repeat Password" required="" name="repeat-password"></div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
-                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" value="<?php echo $row['firstname'] ?>" placeholder="First Name" required="" name="firstname"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" value="<?php echo $row['lastname'] ?>" placeholder="Last Name" required="" name="lastname"></div>
+                            </div><input class="form-control form-control-user" type="text" value="<?php echo $row['phone'] ?>" placeholder="Phone" required="" name="phone">
                             <div class="form-group mb-3">
-                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
+                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" value="<?php echo $row['address'] ?>" required="" name="address">
                             </div>
                             <div class="row mb-3">
                                 <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
@@ -63,6 +77,8 @@ include_once "functions/authentication.php";
                             <hr>
                         </form>
                     </div>
+                            <?php
+                    }?>
             </div>
             <div class="col">
                 <h3 id="fail" class="text-center text-danger d-none"><br>Form not Submitted&nbsp;<a href="contact.php">Try Again</a><br><br></h3>

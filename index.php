@@ -86,16 +86,16 @@ include_once "functions/get-images.php";
                             <h4 class="text-dark mb-4">Create an Account!</h4>
                         </div>
                         <form class="user" action="functions/register.php" method="post">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" pattern="^(?!\s).*$" type="text" placeholder="Username" required="" name="username"></div>
+                            <div class="mb-3"><input class="form-control form-control-user" pattern="^(?!\s).*$" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" required="" name="password"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" pattern="^(?!\s).*$" type="password" id="password" placeholder="Password" required="" name="password"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" pattern="^(?!\s).*$" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
-                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
+                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" pattern="^(?!\s).*$" type="text" placeholder="First Name" required="" name="firstname"></div>
+                                <div class="col-sm-6"><input class="form-control form-control-user" pattern="^(?!\s).*$" type="text" placeholder="Last Name" required="" name="lastname"></div>
+                            </div><input class="form-control form-control-user" type="tel" pattern="^(?!\s).*$" placeholder="Phone" required="" name="phone">
                             <div class="form-group mb-3">
                                 <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
                             </div>

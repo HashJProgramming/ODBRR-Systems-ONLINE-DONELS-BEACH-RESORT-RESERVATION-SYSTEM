@@ -23,7 +23,7 @@ function user_list(){
             </td>
 
             <td class="border-0 align-middle">
-                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#update-user" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
+                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-username="<?php echo $row['username']?>"  data-firstname="<?php echo $row['firstname']?>"  data-lastname="<?php echo $row['lastname']?>" data-email="<?php echo $row['email']?>" data-address="<?php echo $row['address']?>" data-phone="<?php echo $row['phone']?>" data-bs-target="#update-user" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
                 <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#confrim-user" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a>
             </td>
             <td class="border-0 align-middle"><strong><?php echo $row['username']?></strong></td>
@@ -61,7 +61,7 @@ function room_list(){
             </td>
 
             <td class="border-0 align-middle">
-                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
+                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-name="<?php echo $row['name']?>" data-descriptions="<?php echo $row['descriptions']?>" data-pax="<?php echo $row['pax']?>" data-price="<?php echo $row['price']?>"  data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
                 <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#confrim-room" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a>
             </td>
             <td class="border-0 align-middle"><strong><?php echo $row['name']?></strong></td>
@@ -99,7 +99,7 @@ function cottage_list(){
             </td>
 
             <td class="border-0 align-middle">
-                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
+                <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-name="<?php echo $row['name']?>" data-descriptions="<?php echo $row['descriptions']?>" data-pax="<?php echo $row['pax']?>" data-price="<?php echo $row['price']?>"  data-bs-target="#update-room" data-bs-toggle="modal"><i class="far fa-edit"></i></a>
                 <a href="#" class="text-dark" style="margin-left: 10px;" data-id="<?php echo $row['id']?>" data-bs-target="#confrim-room" data-bs-toggle="modal"><i class="far fa-trash-alt"></i></a>
             </td>
             <td class="border-0 align-middle"><strong><?php echo $row['name']?></strong></td>

@@ -30,6 +30,12 @@ $check_out = $_POST['check_out'];
 $check_in_datetime = new DateTime($check_in);
 $check_out_datetime = new DateTime($check_out);
 
+// Check if the check out date is in the past
+if ($check_out_datetime <= $check_in_datetime) {
+    echo "Check out must not be in the past or same as the check in date";
+    exit;
+}
+
 // Get the difference between the two datetime objects
 $diff = $check_out_datetime->diff($check_in_datetime);
 
@@ -52,8 +58,8 @@ if (count($rows) > 0) {
 }
 
 // Insert the transaction data into the database
-$sql = "INSERT INTO transactions (user_id, lists_id, check_in, check_out, amount, total_price, status)
-        VALUES ('$user_id' ,'$data_id', '$check_in', '$check_out', '0', '$total_price', 'processing')";
+$sql = "INSERT INTO transactions (user_id, lists_id, check_in, check_out, total_price, status)
+        VALUES ('$user_id' ,'$data_id', '$check_in', '$check_out',  '$total_price', 'processing')";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 

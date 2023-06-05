@@ -22,7 +22,7 @@ foreach ($results as $row) {
         <td class="border-0 align-middle"><strong><?php get_days($row['check_in'], $row['check_out']); ?></strong></td>
         <td class="border-0 align-middle"><strong><?php echo $row['total_price']; ?></strong></td>
         <td class="border-0 align-middle">
-            <a href="#" data-id="<?php echo $row['id']?>" data-bs-target="#transaction" data-bs-toggle="modal" class="text-dark" style="margin-left: 10px;"><i class="fas fa-check"></i></a>
+            <a href="#" data-id="<?php echo $row['id']?>" data-bs-target="#proceed" data-bs-toggle="modal" class="text-dark" style="margin-left: 10px;"><i class="fas fa-check"></i></a>
             <a href="#" data-id="<?php echo $row['id']?>" data-bs-target="#confirm" data-bs-toggle="modal" class="text-dark" style="margin-left: 10px;"><i class="fas fa-times"></i></a>
         </td>
         <td class="border-0 align-middle"><strong><?php echo $row['status']; ?></strong></td>

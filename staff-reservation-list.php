@@ -10,7 +10,7 @@ include_once "functions/get-information.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>My History - ODBRR Systems</title>
+    <title>ODBRR Systems</title>
     <meta name="description" content="ODBRR Systems - ONLINE DONELS BEACH RESORT RESERVATION SYSTEM">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Inter.css">
@@ -191,34 +191,9 @@ include_once "functions/get-information.php";
                     <h4 class="modal-title">Users</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h4 class="text-dark mb-4">ADD USER</h4>
-                        </div>
-                        <form class="user" action="functions/register.php" method="post">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Username" required="" name="username"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" placeholder="Email Address" required="" name="email"></div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" required="" name="password"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="verifyPassword" placeholder="Repeat Password" required="" name="repeat-password"></div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="First Name" required="" name="firstname"></div>
-                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Last Name" required="" name="lastname"></div>
-                            </div><input class="form-control form-control-user" type="text" placeholder="Phone" required="" name="phone">
-                            <div class="form-group mb-3">
-                                <p><strong>Address&nbsp;</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="" name="address">
-                            </div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
-                            <hr>
-                        </form>
-                    </div>
                     <section class="py-5">
                         <div class="container">
-                            <h1 class="text-center mb-4">Rooms</h1>
+                            <h1 class="text-center mb-4">Users List</h1>
                         </div>
                         <div class="container">
                             <div class="table-responsive">
@@ -461,28 +436,6 @@ include_once "functions/get-information.php";
             </div>
         </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="transaction">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Transaction</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="p-5">
-                        <form action="functions/proceed-transaction.php" method="post">
-                            <input type="hidden" name="data_id">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Amount" required="" name="payment"></div>
-                            <div class="row mb-3">
-                                <p id="emailErrorMsg-1" class="text-danger" style="display: none;">Paragraph</p>
-                                <p id="passwordErrorMsg-1" class="text-danger" style="display: none;">Paragraph</p>
-                            </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Proceed</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="confirm">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -495,6 +448,22 @@ include_once "functions/get-information.php";
                     <p>Are you sure you want to decline this reservation?</p>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-danger" type="submit">Remove</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="proceed">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Proceed</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <form action="functions/proceed-transaction.php" method="post">
+                    <input type="hidden" name="data_id">
+                <div class="modal-body">
+                    <p>Are you sure you want to Approved this reservation?</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Approved</button></div>
                 </form>
             </div>
         </div>
@@ -514,10 +483,38 @@ include_once "functions/get-information.php";
 
         $('a[data-bs-target="#update-user"]').on('click', function() {
         var id = $(this).data('id');
-            console.log(id);
+        var username = $(this).data('username');
+        var firstname = $(this).data('firstname');
+        var lastname = $(this).data('lastname');
+        var email = $(this).data('email');
+        var phone = $(this).data('phone');
+        var address = $(this).data('address');
+
+            console.log(id, username, firstname, lastname, email, phone, address);
+
             $('input[name="data_id"]').each(function() {
                 $(this).val(id);
             });
+            $('input[name="username"]').each(function() {
+                $(this).val(username);
+            });
+            $('input[name="firstname"]').each(function() {
+                $(this).val(firstname);
+            });
+            $('input[name="lastname"]').each(function() {
+                $(this).val(lastname);
+            });
+            $('input[name="email"]').each(function() {
+                $(this).val(email);
+            });
+            $('input[name="phone"]').each(function() {
+                $(this).val(phone);
+            });
+            $('input[name="address"]').each(function() {
+                $(this).val(address);
+            });
+
+
         });
 
         $('a[data-bs-target="#confrim-room"]').on('click', function() {
@@ -544,7 +541,7 @@ include_once "functions/get-information.php";
             });
         });
 
-        $('a[data-bs-target="#transaction"]').on('click', function() {
+        $('a[data-bs-target="#proceed"]').on('click', function() {
         var id = $(this).data('id');
             console.log(id);
             $('input[name="data_id"]').each(function() {
