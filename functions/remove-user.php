@@ -17,23 +17,11 @@ if ($stmt->rowCount() === 0) {
   exit;
 }
 
-$sql = "SELECT * FROM transactions WHERE user_id = :id";
+// check if user has transactions then delete the transactions
+$sql = "SELECT * FROM transactions WHERE users_id = :id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $id);
 $stmt->execute();
-
-if ($stmt->rowCount() === 0) {
-  echo "The user does not exist.";
-  exit;
-}else{
-  // Remove the user from the database 
-  $sql = "DELETE FROM transactions WHERE user_id = :id";
-  $stmt = $db->prepare($sql);
-  $stmt->bindParam(':id', $id);
-  $stmt->execute();
-}
-
-
 
 // Remove the user from the database 
 $sql = "DELETE FROM users WHERE id = :id";
